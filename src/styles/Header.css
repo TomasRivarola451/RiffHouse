@@ -1,0 +1,109 @@
+/* --- HEADER GENERAL --- */
+.rh-site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+/*  Cambia al scrollear o al hacer hover */
+.rh-site-header.scrolled,
+.rh-site-header:hover {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* --- CONTENEDOR FLEX --- */
+.rh-container.rh-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* --- LOGO IZQUIERDA --- */
+.rh-logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff; /* blanco por defecto */
+  transition: color 0.3s ease;
+}
+
+/* --- NAV CENTRADO --- */
+.rh-main-nav {
+  display: flex;
+  gap: 25px;
+}
+
+.rh-main-nav a {
+  text-decoration: none;
+  color: #fff; /* blanco por defecto */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Hover = gris */
+.rh-main-nav a:hover {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+/* --- ACCIONES DERECHA --- */
+.rh-header-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.rh-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #fff; /* blanco por defecto */
+  transition: color 0.3s ease;
+}
+
+.rh-icon-btn:hover {
+  color: #ccc;
+}
+
+/*  Cuando el header es blanco, los textos e íconos pasan a negro */
+.rh-site-header.scrolled .rh-logo,
+.rh-site-header.scrolled .rh-main-nav a,
+.rh-site-header.scrolled .rh-icon-btn,
+.rh-site-header:hover .rh-logo,
+.rh-site-header:hover .rh-main-nav a,
+.rh-site-header:hover .rh-icon-btn {
+  color: #000;
+}
+
+/*  PERO: si estamos en home y el header no está scrolleado ni hover, el activo se mantiene blanco */
+.rh-site-header:not(.scrolled):not(:hover) .rh-main-nav a.active {
+  color: #fff;
+}
+.cart-badge {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  margin-left: 4px;
+}
+.cart-count {
+  display: inline-block;
+  margin-left: 6px;
+  background: #d33;
+  color: white;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}

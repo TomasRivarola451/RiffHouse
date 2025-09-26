@@ -1,0 +1,63 @@
+:root{
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f5f5;
+  --color-text: #111111;
+  --color-accent: #c6a664; 
+  --color-highlight: #a01818;
+  --header-height: 72px;
+
+  --font-main: "Inter", Arial, sans-serif;
+  --font-title: "Georgia", serif;
+
+  --shadow-soft: 0 6px 20px rgba(16,24,40,0.08);
+  --shadow-card: 0 8px 30px rgba(16,24,40,0.12);
+
+  --transition: all 0.25s ease;
+}
+
+/* Reset / base */
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  background:var(--color-bg);
+  color:var(--color-text);
+  font-family:var(--font-main);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Utilidades */
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+.btn {
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:6px;
+  text-decoration:none;
+  cursor:pointer;
+  transition: var(--transition);
+  border: none;
+  font-weight:600;
+}
+
+.btn-primary{
+  background:var(--color-accent);
+  color:#fff;
+  box-shadow: var(--shadow-soft);
+}
+.btn-primary:hover{ transform: translateY(-2px); }
+
+.btn-ghost{
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Small helpers */
+.h-viewport { height: calc(100vh - var(--header-height)); }

@@ -1,0 +1,32 @@
+.product-card {
+  width: 250px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  display: block;
+  transition: opacity 0.4s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.image-container .back {
+  opacity: 0;
+}
+
+.image-container:hover .front {
+  opacity: 0;
+}
+
+.image-container:hover .back {
+  opacity: 1;
+}

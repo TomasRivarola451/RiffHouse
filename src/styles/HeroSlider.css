@@ -1,0 +1,180 @@
+:root{
+  --hero-overlay-left: rgba(0,0,0,0.18);
+  --hero-overlay-mid: rgba(0,0,0,0.08);
+  --hero-overlay-transparent: rgba(0,0,0,0);
+  --btn-dark: #111;
+  --btn-dark-hover: #222;
+  --btn-white: #fff;
+}
+
+/* slide full-viewport */
+.hero-slide {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 60px;
+  overflow: hidden;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* overlay lateral sutil */
+.hero-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--hero-overlay-left) 0%,
+    var(--hero-overlay-mid) 30%,
+    var(--hero-overlay-transparent) 65%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* overlay superior para el header */
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.35) 0%,
+    rgba(0,0,0,0.15) 60%,
+    transparent 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* CONTENIDO */
+/* Animación normal entre slides */
+.slide-content {
+  position: absolute;
+  bottom: 12%;
+  left: 7%;
+  z-index: 3;
+  color: var(--btn-white);
+  max-width: 580px;
+  text-align: left;
+  line-height: 1.15;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.9s ease; /* un poco más lenta que antes */
+}
+
+/* Cuando Swiper activa el slide */
+.swiper-slide-active .slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cuando carga la página */
+.slide-content.init-animate {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: all 1.2s ease !important; /* aún más suave */
+}
+
+
+
+/* Titulares */
+.slide-content h1,
+.slide-content h2 {
+  margin: 0 0 0.8rem 0;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.35);
+  letter-spacing: -0.02em;
+}
+
+.slide-content h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.slide-content h2 {
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  font-weight: 500;
+  color: rgba(255,255,255,0.95);
+  max-width: 44ch;
+}
+
+/* Botones */
+.slide-content .btn {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  border: none;
+}
+
+/* ahora en NEGRO */
+.slide-content .btn-primary {
+  background: var(--btn-dark) !important;
+  color: var(--btn-white) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18) !important;
+}
+.slide-content .btn-primary:hover {
+  background: var(--btn-dark-hover) !important;
+  transform: translateY(-2px) !important;
+}
+
+.slide-content .btn-secondary {
+  background: rgba(255,255,255,0.14) ;
+  color: var(--btn-white) ;
+  border: 1px solid rgba(255,255,255,0.18) ;
+}
+.slide-content .btn-secondary:hover {
+  background: rgba(255,255,255,0.95) ;
+  color: #111;
+  transform: translateY(-2px) ;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .slide-content { bottom: 10%; left: 6%; max-width: 480px; }
+  .slide-content h1 { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+  .slide-content h2 { font-size: clamp(0.85rem, 2vw, 1rem); }
+}
+
+@media (max-width: 520px) {
+  .hero-slide { margin-bottom: 40px; height: 70vh; }
+  .slide-content {
+    bottom: 8%;
+    left: 5%;
+    max-width: calc(100% - 40px);
+    padding-right: 10px;
+  }
+  .slide-content h1 { font-size: 1.6rem; }
+  .slide-content h2 { font-size: 0.9rem; }
+  .slide-content .btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+}
+@keyframes fadeUpSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.swiper-slide-active .slide-content {
+  animation: fadeUpSlide 1.4s ease forwards;
+}

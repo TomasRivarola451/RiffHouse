@@ -1,0 +1,30 @@
+.filtro-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.filtro-btn {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.filtro-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.filtro-btn.activo {
+  background: linear-gradient(135deg, #ff8c00, #ff0080);
+  box-shadow: 0 6px 18px rgba(255, 0, 128, 0.6);
+}

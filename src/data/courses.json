@@ -1,0 +1,20 @@
+[
+  {
+    "id": "c001",
+    "title": "Principios de Guitarra Eléctrica",
+    "duration_hours": 10,
+    "level": "Principiante",
+    "price": 49.99,
+    "preview_image": "/assets/courses/electric-basics.jpg",
+    "description": "Introducción a la guitarra eléctrica: afinación, acordes básicos, riffs y técnica de pua."
+  },
+  {
+    "id": "c002",
+    "title": "Fingerstyle para acústica",
+    "duration_hours": 12,
+    "level": "Intermedio",
+    "price": 69.99,
+    "preview_image": "/assets/courses/fingerstyle.jpg",
+    "description": "Técnicas de fingerstyle, patrones rítmicos y arreglos para canciones populares."
+  }
+]

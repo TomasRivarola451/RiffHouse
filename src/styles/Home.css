@@ -1,0 +1,256 @@
+.home-page {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #fff;
+  color: #111;
+}
+
+/* Hero slider */
+.hero-slider {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.hero-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+}
+
+/* Secciones */
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* --- Categorías --- */
+.categories {
+  margin-top: 4rem; 
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.category-card img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.05);
+}
+
+/* --- Botón encima de la imagen --- */
+.category-label {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: #fff;
+  color: #111;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.category-card:hover .category-label {
+  background: #111;
+  color: #fff;
+}
+
+/* Carrusel */
+.carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.carousel-item {
+  min-width: 250px;
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+/* Banner adicional */
+.banner-container {
+  position: relative;
+  margin: 28px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000; 
+}
+.banner-img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.65);
+}
+.banner-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  justify-content: center; 
+  padding: 28px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.banner-text h2 {
+  font-size: 2.4rem;
+  margin: 0 0 8px;
+  font-weight: 800;
+  color: #fff; 
+  width: 100%; 
+  text-align: left;
+}
+
+.banner-text p {
+  margin: 0;
+  opacity: 0.9;
+  color: #fff; 
+  width: 100%;
+  text-align: left;
+}
+/* --- Sección cursos (home) --- */
+.courses.section {
+  background: #fff; 
+  padding: 42px 20px;
+}
+
+.courses.section .courses-subtitle {
+  color: #666;
+  margin-top: 6px;
+  margin-bottom: 28px;
+  font-size: 1rem;
+}
+
+/* grid de 3 cards (home) */
+.courses.section .courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* card pequeña (home) - vertical */
+.courses.section .course-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px; 
+}
+
+.courses.section .course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.10);
+}
+
+.courses.section .course-card img {
+ width: 100%; 
+  height: auto; 
+  object-fit: contain; 
+  display: block; 
+}
+
+.courses.section .course-info {
+  padding: 18px 20px;
+  color: #111;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.courses.section .course-info h3 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.courses.section .course-info p {
+  margin: 0 0 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* boton estilo coherente con resto del sitio (home) */
+.courses.section .btn.btn-dark,
+.courses.section .course-info .btn {
+  background: #111 !important; 
+  color: #fff !important;
+  padding: 10px 14px;
+  border-radius: 8px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  align-self: start;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+/* hover boton home: sutil */
+.courses.section .btn.btn-dark:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  background: #000 !important;
+}
+
+/* responsive */
+@media (max-width: 980px) {
+  .banner-img { height: 300px; }
+  .banner-text h2 { font-size: 1.9rem; }
+  .courses.section .course-card img { height: 220px; }
+}
+
+@media (max-width: 520px) {
+  .banner-img { height: 210px; }
+  .banner-text h2 { font-size: 1.5rem; }
+  .courses.section .course-card img { height: 180px; }
+  .courses.section .course-card { min-height: auto; }
+}
