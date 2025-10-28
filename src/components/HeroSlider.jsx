@@ -18,7 +18,7 @@ export default function HeroSlider() {
         <SwiperSlide>
           <div className="hero-slide">
             <img
-              src="https://www.gibson.com/cdn/shop/files/CNR07285-2__les_paul_custom_70s_hero_desktop_edit.jpg?v=1758125120&width=1920"
+              src="/images/Hero0.webp"
               alt="Guitarra 1"
               className="slide-image"
             />

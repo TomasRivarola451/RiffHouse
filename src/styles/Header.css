@@ -21,6 +21,12 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
+/* Cuando el menú está abierto, fondo blanco siempre */
+.rh-site-header.menu-open {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
 /* --- CONTENEDOR FLEX --- */
 .rh-container.rh-header-inner {
   display: flex;
@@ -34,8 +40,9 @@
   font-size: 1.6rem;
   font-weight: bold;
   text-decoration: none;
-  color: #fff; /* blanco por defecto */
+  color: #fff;
   transition: color 0.3s ease;
+  z-index: 1001;
 }
 
 /* --- NAV CENTRADO --- */
@@ -46,12 +53,11 @@
 
 .rh-main-nav a {
   text-decoration: none;
-  color: #fff; /* blanco por defecto */
+  color: #fff;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
-/* Hover = gris */
 .rh-main-nav a:hover {
   color: #ccc;
   text-decoration: underline;
@@ -61,6 +67,7 @@
 .rh-header-actions {
   display: flex;
   gap: 15px;
+  align-items: center;
 }
 
 .rh-icon-btn {
@@ -68,28 +75,52 @@
   border: none;
   cursor: pointer;
   font-size: 1.2rem;
-  color: #fff; /* blanco por defecto */
+  color: #fff;
   transition: color 0.3s ease;
+  position: relative;
 }
 
 .rh-icon-btn:hover {
   color: #ccc;
 }
 
+/* Hamburguesa oculta por defecto */
+.rh-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #fff;
+  transition: color 0.3s ease;
+  z-index: 1001;
+}
+
+/* Overlay del menú mobile */
+.menu-overlay {
+  display: none;
+}
+
 /*  Cuando el header es blanco, los textos e íconos pasan a negro */
 .rh-site-header.scrolled .rh-logo,
 .rh-site-header.scrolled .rh-main-nav a,
 .rh-site-header.scrolled .rh-icon-btn,
+.rh-site-header.scrolled .rh-hamburger,
 .rh-site-header:hover .rh-logo,
 .rh-site-header:hover .rh-main-nav a,
-.rh-site-header:hover .rh-icon-btn {
+.rh-site-header:hover .rh-icon-btn,
+.rh-site-header:hover .rh-hamburger,
+.rh-site-header.menu-open .rh-logo,
+.rh-site-header.menu-open .rh-icon-btn,
+.rh-site-header.menu-open .rh-hamburger {
   color: #000;
 }
 
 /*  PERO: si estamos en home y el header no está scrolleado ni hover, el activo se mantiene blanco */
-.rh-site-header:not(.scrolled):not(:hover) .rh-main-nav a.active {
+.rh-site-header:not(.scrolled):not(:hover):not(.menu-open) .rh-main-nav a.active {
   color: #fff;
 }
+
 .cart-badge {
   background: red;
   color: white;
@@ -98,6 +129,7 @@
   padding: 2px 6px;
   margin-left: 4px;
 }
+
 .cart-count {
   display: inline-block;
   margin-left: 6px;
@@ -106,4 +138,107 @@
   padding: 2px 7px;
   border-radius: 999px;
   font-size: 0.8rem;
+}
+
+/* ======================================
+   RESPONSIVE MOBILE
+   ====================================== */
+
+@media (max-width: 768px) {
+  .rh-site-header {
+    padding: 12px 20px;
+  }
+
+  /* Mostrar hamburguesa */
+  .rh-hamburger {
+    display: block;
+  }
+
+  /* Ocultar nav por defecto */
+  .rh-main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: right 0.4s ease;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  /* Nav abierto */
+  .rh-main-nav.open {
+    right: 0;
+  }
+
+  /* Links en negro en el menú mobile */
+  .rh-main-nav a {
+    color: #000;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .rh-main-nav a:hover {
+    color: #555;
+  }
+
+  .rh-main-nav a.active {
+    color: #d33;
+  }
+
+  /* Overlay oscuro cuando el menú está abierto */
+  .menu-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 998;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Logo más pequeño en mobile */
+  .rh-logo {
+    font-size: 1.3rem;
+  }
+
+  /* Iconos más pequeños */
+  .rh-icon-btn {
+    font-size: 1.1rem;
+  }
+
+  .rh-header-actions {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rh-site-header {
+    padding: 10px 15px;
+  }
+
+  .rh-logo {
+    font-size: 1.2rem;
+  }
+
+  .rh-main-nav {
+    width: 75%;
+  }
+
+  .rh-main-nav a {
+    font-size: 1.2rem;
+  }
 }
